@@ -255,7 +255,7 @@
 
       function change_page(page) {
         //page = page.substring(1,page.length-1);
-        page = page.replace(/\//g,"");
+        page = page.replace(/#/g,"");
         console.log("changing page: " + page);
         update_position(page);
         set_section_visible(page);
@@ -263,10 +263,15 @@
         //update_uri(page);
       }
 
+      function page_hook() {
+        var _page = window.location['hash'];
+        change_page(_page);
+      }
+
       function update_uri(page) {
-        console.log(window.location.pathname);
-        window.location.pathname = "/" + page;
-        console.log(window.location.pathname);
+        console.log(window.location.hash);
+        window.location.hash = "#" + page;
+        console.log(window.location.hash);
       }
 
       function update_position(page) {
@@ -318,7 +323,8 @@
       }
 
       function is_external_url() {
-        return window.location.hostname.indexOf("almanderconsult.se") == -1;
+        return false;
+        //return window.location.hostname.indexOf("almanderconsult.se") == -1;
       }
 
       function display_404() {
@@ -339,7 +345,8 @@
 
       $(function() {
         initializeMap();
-        var _page = window.location['pathname'];
+        var _page = window.location['hash'];
+        console.log("Hash: "+_page);
         if (_page.length==1) {
           _page = default_page;
         }
@@ -354,3 +361,5 @@
 
         //$("#nav-home a").click();
       });
+
+      document.getElementsByClassName("page-anchor").onclick = page_hook();
