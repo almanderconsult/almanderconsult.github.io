@@ -347,7 +347,7 @@
         initializeMap();
         var _page = window.location['hash'];
         console.log("Hash: "+_page);
-        if (_page.length==1) {
+        if (_page.length==0) {
           _page = default_page;
         }
         change_page(_page);
