@@ -350,15 +350,8 @@
           _page = default_page;
         }
         change_page(_page);
+        window.addEventListener("hashchange", page_hook, false);
 
-        var anchors = document.getElementsByClassName("page-anchor");
-
-        for (var i=0; i < anchors.length; i++) {
-          anchors[i].onclick = function() { 
-            page_hook();
-            return false;
-          };
-        };
 
         //$("a").click(function(event) {
         //  change_page($(this).attr('href'));
