@@ -323,8 +323,7 @@
       }
 
       function is_external_url() {
-        return false;
-        //return window.location.hostname.indexOf("almanderconsult.se") == -1;
+        return window.location.hostname.indexOf("almanderconsult.se") == -1;
       }
 
       function display_404() {
@@ -351,7 +350,6 @@
           _page = default_page;
         }
         change_page(_page);
-        document.getElementsByClassName("page-anchor").onclick = page_hook();
 
 
         //$("a").click(function(event) {
@@ -363,3 +361,11 @@
         //$("#nav-home a").click();
       });
 
+      var anchors = document.getElementsByClassName("page-anchor");
+
+      for (var i=0; i < anchors.length; i++) {
+        anchors[i].onclick = function() { 
+          page_hook();
+          return false;
+        };
+      };
