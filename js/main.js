@@ -351,6 +351,7 @@
           _page = default_page;
         }
         change_page(_page);
+        document.getElementsByClassName("page-anchor").onclick = page_hook();
 
 
         //$("a").click(function(event) {
@@ -362,4 +363,3 @@
         //$("#nav-home a").click();
       });
 
-      document.getElementsByClassName("page-anchor").onclick = page_hook();
