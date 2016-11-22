@@ -84,10 +84,10 @@ a {
 
 #nav-wrapper {
     margin: 0 auto;
-    min-width: 62em;
+    min-width: 72em;
     position: relative;
     text-align: center;
-    width: 62em;
+    width: 72em;
 }
 
 .link-wrapper {
