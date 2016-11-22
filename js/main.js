@@ -290,8 +290,6 @@
 
         if ($(nav_selector).length==0) {
           display_404();
-        } else if (is_external_url()) {
-          display_redirect();
         } else {
           $(".content").removeClass("visible");
           $(".content").addClass("hidden");
@@ -315,6 +313,8 @@
           if (page == 'home') {
             $("body").addClass("storm");
             $("#map-wrapper").addClass("hidden");
+          } else if (page == 'welin') {
+            display_redirect();
           } else {
             $("body").removeClass("storm");
             $("#map-wrapper").removeClass("hidden");
